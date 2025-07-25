@@ -1,45 +1,52 @@
-import { View } from "react-native";
-import { useAppTheme } from "@/themes/useTheme";
+import { View, Text, Pressable } from "react-native";
+import { LucideIcon, Palette } from "lucide-react-native";
 import {
-	Select,
-	SelectContent,
-	SelectGroup,
-	SelectItem,
-	SelectTrigger,
-} from "./ui/select";
-import { Palette } from "lucide-react-native";
+	DropdownMenu,
+	DropdownMenuTrigger,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuLabel,
+	DropdownMenuSeparator,
+} from "./elements/DropdownMenu";
+import { useAppTheme } from "@/themes/useTheme";
+import { Sun } from "lucide-react";
+
+const themes = ["light", "dark", "natural", "mono", "green", "blue", "neo"];
 
 export function ThemeToggle() {
-	const { theme, setTheme } = useAppTheme();
-	const themes = ["light", "dark", "blue", "green", "orange"];
+	const { theme, setTheme, toggleTheme } = useAppTheme();
 
 	return (
-		<View className="flex-row gap-2">
-			<Select
-				value={theme}
-				onValueChange={(value) => {
-					console.log("Selected theme:", value);
-					setTheme(value?.label);
-				}}
-			>
-				<SelectTrigger>
-					<Palette className="w-5 h-5" />
-				</SelectTrigger>
-				<SelectContent className="bg-background">
-					<SelectGroup>
-						{themes.map((t) => (
-							<SelectItem
-								onPress={() => setTheme(t)}
-								label={t}
-								key={t}
-								value={t}
-							>
-								{t}
-							</SelectItem>
-						))}
-					</SelectGroup>
-				</SelectContent>
-			</Select>
+		<View className="flex-row gap-2.5 items-center">
+			<DropdownMenu>
+				<DropdownMenuTrigger asChild>
+					<Text className="">
+						<Palette size={24} className="text-primary" />
+					</Text>
+				</DropdownMenuTrigger>
+
+				<DropdownMenuContent className="w-48 native:w-56">
+					<DropdownMenuLabel className="px-3 py-2 text-sm font-semibold">
+						Select Theme
+					</DropdownMenuLabel>
+					<DropdownMenuSeparator />
+
+					{themes.map((t) => (
+						<DropdownMenuItem
+							key={t}
+							onPress={() => setTheme(t)}
+							className={`flex-row items-center justify-between px-3 py-2 ${
+								theme === t ? "bg-background" : ""
+							}`}
+						>
+							<Text className="capitalize text-foreground">{t}</Text>
+						</DropdownMenuItem>
+					))}
+				</DropdownMenuContent>
+			</DropdownMenu>
+			<Pressable onPress={toggleTheme}>
+				<Sun className="text-primary" size={24} />
+			</Pressable>
 		</View>
 	);
 }

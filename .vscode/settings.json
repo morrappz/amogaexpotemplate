@@ -1,6 +1,8 @@
 {
-    "nuxt.isNuxtApp": false,
-    // "reactNativeTextWatcher.enable": true,
-    // "react-native-text.changeSeverityType": "warning",
-    // "react-native-text.manageTextComponents": ["Text", "MyText"]
+	"nuxt.isNuxtApp": false,
+	"cSpell.enabled": false
+	//
+	// "reactNativeTextWatcher.enable": true,
+	// "react-native-text.changeSeverityType": "warning",
+	// "react-native-text.manageTextComponents": ["Text", "MyText"]
 }

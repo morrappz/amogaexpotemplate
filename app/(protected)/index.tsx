@@ -21,18 +21,27 @@ import { productCategory, productItems } from "@/constants/data";
 import ProductItem from "@/components/ui/ProductItem";
 import { router } from "expo-router";
 import { useAuth } from "@/context/supabase-provider";
+import { useAppTheme } from "@/themes/useTheme";
 
 const HomePage = () => {
 	const [activeProductCategory, setActiveProductCategory] = useState(0);
 	const { session } = useAuth();
-	console.log("session------", session);
+	const { theme } = useAppTheme();
+	const isGradient = theme.includes("gradient");
+	console.log("theme-------", theme);
 
 	return (
-		<SafeAreaView className="flex-1">
-			<ScrollView className="pb-6 pt-6 bg-background">
+		<SafeAreaView className={`flex-1 ${theme}`}>
+			<ScrollView
+				className={`pb-6 pt-6 ${isGradient ? "bg-background" : "bg-background"} `}
+			>
 				<View className="px-4 flex-row w-full justify-between items-center">
-					<Text className="text-3xl font-bold text-g60">ClickMart</Text>
-					<MaterialCommunityIcons name="bell-badge" size={28} color="#696969" />
+					<Text className="text-3xl font-semibold text-primary">ClickMart</Text>
+					<MaterialCommunityIcons
+						name="bell-badge"
+						size={28}
+						className="text-primary"
+					/>
 				</View>
 				{/* Search Section Start */}
 				<Pressable
@@ -76,10 +85,10 @@ const HomePage = () => {
 									} `}
 								>
 									<Text
-										className={`text-base font-medium  ${
+										className={`text-base bg-primary p-2.5 rounded-md font-medium  ${
 											index === activeProductCategory
 												? "text-white"
-												: "text-g50 "
+												: "text-muted "
 										} `}
 									>
 										{item}

@@ -25,36 +25,32 @@ const Profile = () => {
 				Platform.OS === "web" && "max-w-[800px] mx-auto"
 			} w-full flex-1`}
 		>
-			<ScrollView className="pt-6 min-h-full bg-white">
+			<ScrollView className="pt-6 min-h-full bg-background">
 				<View className="flex-row justify-between items-center gap-4 px-4 w-full ">
 					<Pressable onPress={() => router.back()} className="">
 						<Entypo name="chevron-with-circle-left" size={32} color="#3f3f3f" />
 					</Pressable>
-					<Text className="text-2xl font-bold text-g60">Account</Text>
+					<Text className="text-2xl font-bold text-g60 text-primary">
+						Account
+					</Text>
 					<Pressable onPress={() => router.push("/CameraViewPage")}>
 						<AntDesign name="scan1" size={24} color="#3f3f3f" />
 					</Pressable>
 				</View>
 				<View className="px-4 pt-8">
-					<View className="flex-row justify-between items-center p-4 bg-g60 rounded-xl">
+					<View className="flex-row justify-between items-center p-4 bg-card rounded-xl">
 						<View className="flex-row justify-start items-center gap-4">
 							<View className="">
-								<Image
-									source={userImg}
-									className="w-14 h-14 md:hidden rounded-full"
-								/>
-							</View>
-							<View className="">
-								<Text className="text-xl font-semibold text-white">
+								<Text className="text-xl font-semibold text-primary">
 									Albert Flores
 								</Text>
-								<Text className="text-sm text-white">example@gmail.com</Text>
+								<Text className="text-sm text-primary">example@gmail.com</Text>
 							</View>
 						</View>
 
 						<Pressable
 							onPress={() => setQrModal(true)}
-							className=" rounded-full !leading-none w-9 h-9 flex justify-center items-center bg-white"
+							className=" rounded-full !leading-none w-9 h-9 flex justify-center items-center bg-card"
 						>
 							<MaterialIcons name="qr-code-scanner" size={20} color="#3f3f3f" />
 						</Pressable>
@@ -73,7 +69,9 @@ const Profile = () => {
 									<View className=" rounded-full border border-g30 !leading-none w-10 h-10 flex justify-center items-center bg-g20">
 										{icon}
 									</View>
-									<Text className="text-g60 font-medium text-base">{name}</Text>
+									<Text className="text-muted-foreground text-primary font-medium text-base">
+										{name}
+									</Text>
 								</View>
 								<Feather name="chevron-right" size={24} color="#3f3f3f" />
 							</Pressable>

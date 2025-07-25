@@ -33,8 +33,10 @@ export function Header() {
 	const { title, showBack, show } = useHeader();
 	const { userCatalog, signOut } = useAuth();
 
+	console.log("usercataloig------", userCatalog);
+
 	// Ensure names are strings and encode for URL
-	const firstName = (userCatalog?.first_name || "f").toString();
+	const firstName = (userCatalog?.first_name || "T").toString();
 	const lastName = (userCatalog?.last_name || "l").toString();
 	const avatarUrl = `https://ui-avatars.com/api/?name=k${encodeURIComponent(firstName)}+${encodeURIComponent(lastName)}&background=0D8ABC&color=fff`;
 	const initials = `${firstName[0]}${lastName[0]}`.toUpperCase();
@@ -92,9 +94,7 @@ export function Header() {
 					/>
 				)}
 				<View>
-					<Text className="font-semibold text-md">
-						{title || "AI Assistant"}
-					</Text>
+					<Text className="font-semibold text-md"></Text>
 					{/* <Text className="text-xs text-green-400">Online</Text> */}
 				</View>
 			</View>
@@ -102,17 +102,11 @@ export function Header() {
 				<Pressable onPress={() => router.push("/(protected)/notifications")}>
 					<Text>
 						{" "}
-						<LucideIcon name="Bell" size={24} className="" />{" "}
+						<LucideIcon name="Bell" size={24} className="text-primary" />{" "}
 					</Text>
-				</Pressable>
-				<Text>
-					{" "}
-					<ThemeToggle />
-				</Text>
-				<Text>
-					{" "}
-					<Language />
-				</Text>
+				</Pressable>{" "}
+				<ThemeToggle />
+				<Language />
 				{/* <Pressable
                     className="absolute top-0 right-0 active:bg-primary/5"
                     onPress={() => {
@@ -122,7 +116,11 @@ export function Header() {
 				<DropdownMenu>
 					<DropdownMenuTrigger ref={triggerRef} asChild>
 						<Text className="mb-1 size-7">
-							<LucideIcon name="Menu" size={24} className="mb-1 size-7" />
+							<LucideIcon
+								name="Menu"
+								size={24}
+								className="mb-1 size-7 text-primary"
+							/>
 						</Text>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent
@@ -187,7 +185,7 @@ export function Header() {
 							{/* <Text>
 								<LucideIcon name="PackagePlus" size={14} />
 							</Text> */}
-							<Text>Profile</Text>
+							<Text>Settings</Text>
 						</DropdownMenuItem>
 						<DropdownMenuItem
 							onPress={() => router.push("/(protected)/HelpCenter")}

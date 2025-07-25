@@ -10,6 +10,7 @@ export default function App() {
 	const router = useRouter();
 	const { signIn, setSession } = useAuth();
 	const [otpDetails, setOtpDetails] = useState("");
+	const { session } = useAuth();
 
 	return (
 		<SafeAreaView className="flex-1 bg-background" edges={["bottom"]}>
@@ -56,14 +57,17 @@ export default function App() {
 						const { error: insertError } = await supabase
 							.from("user_catalog")
 							.insert({
+								first_name: first_name,
+								last_name: last_name,
 								user_email: user_email,
+								user_mobile: user_phone,
 								created_user_name: `${first_name} ${last_name}`,
-
 								business_name,
 								business_number,
-								// business_zipcode,
-
+								business_postcode: business_zipcode,
+								business_phone_no: business_mobile,
 								created_at: new Date().toISOString(),
+								password: password,
 							});
 
 						if (insertError) {

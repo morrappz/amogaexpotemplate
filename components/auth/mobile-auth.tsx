@@ -358,8 +358,8 @@ export default function MobileAuth({
 				<Card className="w-full max-h-[screen] h-full overflow-y-auto shadow-lg">
 					<CardHeader className="text-center space-y-4">
 						<div>
-							<CardTitle className="text-xl">Morr appz</CardTitle>
-							<CardDescription className="mt-2">
+							<CardTitle className="text-xl font-sans">Morr appz</CardTitle>
+							<CardDescription className="mt-2 font-sans">
 								{activeTab === "signin"
 									? "Sign in to your account"
 									: "Create your account to get started"}
@@ -374,7 +374,7 @@ export default function MobileAuth({
 								resetForm();
 							}}
 						>
-							<TabsList className="grid w-full grid-cols-2">
+							<TabsList className="grid w-full font-sans grid-cols-2">
 								<TabsTrigger value="signin">Sign In</TabsTrigger>
 								<TabsTrigger value="signup">Sign Up</TabsTrigger>
 							</TabsList>
@@ -490,11 +490,11 @@ export default function MobileAuth({
 														<div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
 															<div className="flex items-center gap-2 mb-1">
 																<Shield className="h-4 w-4 text-blue-600" />
-																<span className="text-sm font-medium">
+																<span className="text-sm font-sans font-medium">
 																	OTP Verification
 																</span>
 															</div>
-															<p className="text-xs text-blue-700">
+															<p className="text-xs font-sans text-blue-700">
 																We`&apos;`ll send a verification code to your
 																email.
 															</p>
@@ -681,7 +681,7 @@ export default function MobileAuth({
 											</Button>
 										</div>
 										<p
-											className={`text-xs mt-1 ${isPasswordInvalid() ? "text-red-600" : "text-muted-foreground"}`}
+											className={`text-xs font-sans mt-1 ${isPasswordInvalid() ? "text-red-600" : "text-muted-foreground"}`}
 										>
 											{isPasswordInvalid()
 												? "Password must be at least 8 characters"
@@ -692,11 +692,11 @@ export default function MobileAuth({
 									<div className="bg-green-50 p-3 rounded-lg border border-green-200">
 										<div className="flex items-center gap-2 mb-1">
 											<Shield className="h-4 w-4 text-green-600" />
-											<span className="text-sm font-medium">
+											<span className="text-sm font-sans font-medium">
 												Create Account
 											</span>
 										</div>
-										<p className="text-xs text-green-700">
+										<p className="text-xs font-sans text-green-700">
 											We`&apos;`ll send an OTP to your email to verify your
 											account.
 										</p>

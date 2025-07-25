@@ -27,12 +27,12 @@ const ProductItem = ({
 	return (
 		<Pressable
 			onPress={() => router.push("/ProductDetails" as any)}
-			className="pt-4 relative w-[48%]"
+			className="pt-4 bg-gradient relative w-[48%]"
 		>
 			<View className="rounded-xl relative overflow-hidden block">
 				<Image source={productImg} className="w-full" alt="" />
 			</View>
-			<View className="absolute top-7 right-3 shadow-1 bg-white p-1.5 rounded-full flex justify-center items-center cursor-pointer favouriteButton">
+			<View className="absolute top-7 right-3 shadow-1 bg-gradient p-1.5 rounded-full flex justify-center items-center cursor-pointer favouriteButton">
 				<FontAwesome
 					name={isFavourite ? "heart" : "heart-o"}
 					size={14}

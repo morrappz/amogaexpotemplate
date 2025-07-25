@@ -1,7 +1,8 @@
 import "../global.css";
 
 import { Slot, Stack } from "expo-router";
-
+import * as SplashScreen from "expo-splash-screen";
+import { useFonts } from "expo-font";
 import { AuthProvider } from "@/context/supabase-provider";
 import { useColorScheme } from "@/lib/useColorScheme";
 import { colors } from "@/constants/colors";
@@ -9,6 +10,9 @@ import { PortalHost } from "@rn-primitives/portal";
 import { Toaster } from "sonner-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { ThemeProvider, useAppTheme } from "@/themes/useTheme";
+import { useEffect } from "react";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function AppLayout() {
 	return (

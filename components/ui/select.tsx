@@ -167,7 +167,7 @@ function SelectItem({
 	return (
 		<SelectPrimitive.Item
 			className={cn(
-				"relative web:group flex flex-row w-full web:cursor-default web:select-none items-center rounded-sm py-1.5 native:py-2 pl-8 native:pl-10 pr-2 web:hover:bg-accent/50 active:bg-accent web:outline-none web:focus:bg-accent",
+				"relative web:group font-sans flex flex-row w-full web:cursor-default web:select-none items-center rounded-sm py-1.5 native:py-2 pl-8 native:pl-10 pr-2 web:hover:bg-accent/50 active:bg-accent web:outline-none web:focus:bg-accent",
 				props.disabled && "web:pointer-events-none opacity-50",
 				className,
 			)}
@@ -182,7 +182,7 @@ function SelectItem({
 					/>
 				</SelectPrimitive.ItemIndicator>
 			</View>
-			<SelectPrimitive.ItemText className="text-sm native:text-lg text-popover-foreground native:text-base web:group-focus:text-accent-foreground" />
+			<SelectPrimitive.ItemText className="text-sm font-sans native:text-lg text-popover-foreground native:text-base web:group-focus:text-accent-foreground" />
 		</SelectPrimitive.Item>
 	);
 }

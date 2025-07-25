@@ -8,6 +8,7 @@ module.exports = {
 		extend: {
 			colors: {
 				border: "hsl(var(--border))",
+				gradient: "hsl(var(--gradient))",
 				input: "hsl(var(--input))",
 				ring: "hsl(var(--ring))",
 				background: "hsl(var(--background))",
@@ -40,6 +41,29 @@ module.exports = {
 					DEFAULT: "hsl(var(--card))",
 					foreground: "hsl(var(--card-foreground))",
 				},
+			},
+			fontFamily: {
+				sans: ["var(--font-sans)"],
+				serif: ["var(--font-serif)"],
+				mono: ["var(--font-mono)"],
+			},
+			boxShadow: {
+				"2xs": "var(--shadow-2xs)",
+				xs: "var(--shadow-xs)",
+				sm: "var(--shadow-sm)",
+				DEFAULT: "var(--shadow)",
+				md: "var(--shadow-md)",
+				lg: "var(--shadow-lg)",
+				xl: "var(--shadow-xl)",
+				"2xl": "var(--shadow-2xl)",
+			},
+			borderRadius: {
+				DEFAULT: "var(--radius)",
+				sm: "calc(var(--radius) * 0.5)",
+				md: "calc(var(--radius) * 1.5)",
+				lg: "calc(var(--radius) * 2)",
+				xl: "calc(var(--radius) * 3)",
+				full: "9999px",
 			},
 		},
 	},
